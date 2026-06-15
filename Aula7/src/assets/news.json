@@ -1,0 +1,102 @@
+[
+    {
+        "article": {
+            "title": "Tensões na Península Coreana",
+            "time": {
+                "datetime": "2026-04-10 09:30",
+                "display": "10 de Abril de 2026"
+            },
+            "paragraphs": [
+                "A Coreia do Norte realizou lançamentos de mísseis de curto alcance nas últimas horas, elevando o nível de alerta na região.",
+                "Países vizinhos e aliados pedem contenção enquanto monitoram potenciais escaladas."
+            ],
+            "figure": {
+                "img": {
+                    "src": "https://hermes.dio.me/articles/cover/f06729fc-63f7-4e17-b1b5-467d7b6a0633.jpg",
+                    "alt": "Lançamento de míssil na Península Coreana"
+                },
+                "figcaption": "Lançamento de míssil observado por radares militares"
+            }
+        }
+    },
+    {
+        "article": {
+            "title": "Protestos em Capitais Africanas",
+            "time": {
+                "datetime": "2026-04-12 17:15",
+                "display": "12 de Abril de 2026"
+            },
+            "paragraphs": [
+                "Milhares de manifestantes tomaram as ruas exigindo reformas e respostas a crises econômicas.",
+                "Autoridades locais declararam estado de atenção e reforçaram presença policial em pontos estratégicos."
+            ],
+            "figure": {
+                "img": {
+                    "src": "https://hermes.dio.me/articles/cover/f06729fc-63f7-4e17-b1b5-467d7b6a0633.jpg",
+                    "alt": "Multidão protestando em rua principal"
+                },
+                "figcaption": "Manifestantes nas principais avenidas durante a tarde"
+            }
+        }
+    },
+    {
+        "article": {
+            "title": "Colapso de Ponte em Região Rural",
+            "time": {
+                "datetime": "2026-04-13 06:50",
+                "display": "13 de Abril de 2026"
+            },
+            "paragraphs": [
+                "Uma ponte antiga cedeu após fortes chuvas, isolando comunidades locais.",
+                "Equipes de resgate trabalham para retirar moradores e avaliar danos estruturais."
+            ],
+            "figure": {
+                "img": {
+                    "src": "https://hermes.dio.me/articles/cover/f06729fc-63f7-4e17-b1b5-467d7b6a0633.jpg",
+                    "alt": "Ponte parcialmente submersa e destruída"
+                },
+                "figcaption": "Seção da ponte danificada após as chuvas intensas"
+            }
+        }
+    },
+    {
+        "article": {
+            "title": "Ciberataque atinge rede governamental",
+            "time": {
+                "datetime": "2026-04-11 21:40",
+                "display": "11 de Abril de 2026"
+            },
+            "paragraphs": [
+                "Sistemas administrativos de agências públicas ficaram indisponíveis após um ataque cibernético coordenado.",
+                "Investigadores colaboram com parceiros internacionais para identificar a origem do ataque."
+            ],
+            "figure": {
+                "img": {
+                    "src": "https://hermes.dio.me/articles/cover/f06729fc-63f7-4e17-b1b5-467d7b6a0633.jpg",
+                    "alt": "Tela com códigos e alerta de segurança"
+                },
+                "figcaption": "Dados de monitoramento exibidos durante a resposta ao incidente"
+            }
+        }
+    },
+    {
+        "article": {
+            "title": "Surto de Doença Respiratória em Região Metropolitana",
+            "time": {
+                "datetime": "2026-04-09 14:20",
+                "display": "09 de Abril de 2026"
+            },
+            "paragraphs": [
+                "Hospitais registraram aumento repentino de casos respiratórios, forçando medidas de triagem ampliadas.",
+                "Autoridades de saúde recomendam precauções e monitoramento de sintomas pela população."
+            ],
+            "figure": {
+                "img": {
+                    "src": "https://hermes.dio.me/articles/cover/f06729fc-63f7-4e17-b1b5-467d7b6a0633.jpg",
+                    "alt": "Profissional de saúde atendendo paciente com máscara"
+                },
+                "figcaption": "Aumento de atendimentos nas unidades de emergência"
+            }
+        }
+    }
+]
