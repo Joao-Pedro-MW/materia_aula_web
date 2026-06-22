@@ -14,7 +14,7 @@
     align-items: center;
   }
   header :first-child {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-weight: var(--fw-bold);
   }
   p {

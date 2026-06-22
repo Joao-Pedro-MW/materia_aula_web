@@ -65,13 +65,13 @@ export default function Footer() {
           <h3>Recursos</h3>
           <ul>
             <li>
-              <a href="#">Delivery</a>
+              <a href="#">Analises</a>
             </li>
             <li>
-              <a href="#">Encomendas</a>
+              <a href="#">História</a>
             </li>
             <li>
-              <a href="#">Vagas</a>
+              <a href="#">Odin</a>
             </li>
           </ul>
         </div>
@@ -79,7 +79,7 @@ export default function Footer() {
 
       <div className="footer-copyright">
         <p>
-          Feito com amor na aula de Programação Web
+           © 2026 Mitologia Nórdica. Todos os direitos reservados
         </p>
       </div>
     </footer>

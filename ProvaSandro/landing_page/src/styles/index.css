@@ -7,13 +7,13 @@ body {
     font-size: medium;
 }
 :root {
-    --bg-color: #FFF;
-    --text-color: #252B42;
-    --second-text-color: #737373;
-    --light-text-color: #FFF;
-    --light-gray: #F8F8F8;
-    --primary-color: #23A6F0;
-    --secondary-color: #B2E3FF;
+--bg-color: #FFFFFF;             
+--text-color: #1A3A52;              
+--second-text-color: #5A7A8C;       
+--light-text-color: #FFFFFF;       
+--light-gray: #F5F7FA;             
+--primary-color: #D4AF37;           
+--secondary-color: #FF6B35;        
 
     --ff-sans: "Montserrat", system-ui, sans-serif;
     --fw-base: 400;

@@ -3,13 +3,12 @@ import Menu from "../assets/hamburguer.svg";
 import Close from "../assets/close.svg";
 import Champion from "../assets/champion.svg";
 import Footer from "../components/Footer";
-
-import HeroRectangleOne from "../assets/images/rectangleOne.png";
-import HeroRectangleTwo from "../assets/images/rectangleTwo.png";
 import ProfileImageOne from "../assets/images/profile1.png";
 import ProfileImageTwo from "../assets/images/profile2.png";
 import TestimonialCard from "../components/TestimonialCard";
 import PricingCard from "../components/PricingCard";
+import Button from "../components/Button";
+import SolutionCard from "../components/SolutionCard";
 
 import "../styles/index.css";
 import "../styles/utility.css";
@@ -22,11 +21,27 @@ import "../styles/contact.css";
 import "../styles/footer.css";
 import "../styles/button.css";
 
-import Button from "../components/Button";
-import SolutionCard from "../components/SolutionCard";
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  async function sendContactEmail(e: React.SubmitEvent<HTMLFormElement>) {
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        message,
+      }),
+    });
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.error ?? "Erro ao enviar mensagem.");
+    }
+  }
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
   useEffect(() => {
@@ -48,13 +63,13 @@ export default function Home() {
                 <a href="#">Home</a>
               </li>
               <li>
-                <a href="#solution">Soluções</a>
+                <a href="#solution">História</a>
               </li>
               <li>
-                <a href="#testimonials">Depoimentos</a>
+                <a href="#testimonials">Odin</a>
               </li>
               <li>
-                <a href="#pricing">Preços</a>
+                <a href="#pricing">Inimigos</a>
               </li>
               <li>
                 <a href="#contact">Contato</a>
@@ -79,13 +94,13 @@ export default function Home() {
                       <a href="#">Home</a>
                     </li>
                     <li>
-                      <a href="#solution">Soluções</a>
+                      <a href="#solution">História</a>
                     </li>
                     <li>
-                      <a href="#testimonials">Depoimentos</a>
+                      <a href="#testimonials">Odin</a>
                     </li>
                     <li>
-                      <a href="#pricing">Preços</a>
+                      <a href="#pricing">Inimigos</a>
                     </li>
                     <li>
                       <a href="#contact">Contato</a>
@@ -123,32 +138,23 @@ export default function Home() {
       </header>
 
       <section id="hero">
-        <span className="desktop-only">
-          <img src={HeroRectangleTwo} alt="Retangulo um tela inicial" />
-        </span>
-        <img src={HeroRectangleOne} alt="Retangulo dois tela inicial" />
-
         <div className="container content">
           <p className="desktop-only">Olá</p>
-          <h1>
-            Comida de mãe direto no seu apê, é só pedir que entregamos para
-            você!
-          </h1>
+          <h1>Mergulhe nas Lendas dos Deuses Nórdicos</h1>
           <p>
-            Já pensou em matar a saudade daquela comida caseira? O melhor de
-            tudo, nossas receitas são 100% saudáveis, bora entrar no shape.
+            Explore as histórias épicas de Odin, Thor e Loki. Descubra os
+            mistérios de Asgard e a sabedoria dos antigos Vikings.
           </p>
           <div className="flex gap-1">
             <span>
-              <Button text="Cadastre-se" />
+              <Button text="Cadastre-se grátis" />
             </span>
             <span className="desktop-only">
-              <Button text="Veja mais" secondary />
+              <Button text="Explorar Mitologias" secondary />
             </span>
           </div>
         </div>
       </section>
-
       <section className="container" id="solution">
         <header>
           <span>
@@ -168,22 +174,21 @@ export default function Home() {
           <SolutionCard
             icon={Champion}
             iconAlt="ícone campeão"
-            title="Produto Vencedor"
-            description="Ideia matadora, nosso time já ganhou diversos eventos de inovação com nosso produto, entre eles podemos citar o CityFarm da FAG e Startup Garage."
+            title="Thor - O Deus do Trovão"
+            description="Protetor de Midgard e um dos deuses mais populares. Thor é conhecido por sua força imensa, seu martelo Mjolnir, e sua luta contra os gigantes do caos"
+          />
+          <SolutionCard
+            icon={Champion}
+            iconAlt="ícone campeão"
+            title="Odin - O Pai dos Deuses"
+            description="Odin é o senhor de Asgard, conhecido por sua busca infinita pelo conhecimento e sua capacidade de ver o passado, presente e futuro."
           />
 
           <SolutionCard
             icon={Champion}
             iconAlt="ícone campeão"
-            title="Produto Vencedor"
-            description="Ideia matadora, nosso time já ganhou diversos eventos de inovação com nosso produto, entre eles podemos citar o CityFarm da FAG e Startup Garage."
-          />
-
-          <SolutionCard
-            icon={Champion}
-            iconAlt="ícone campeão"
-            title="Produto Vencedor"
-            description="Ideia matadora, nosso time já ganhou diversos eventos de inovação com nosso produto, entre eles podemos citar o CityFarm da FAG e Startup Garage."
+            title="Loki - O Trapaceiro"
+            description="Loki é um personagem complexo, às vezes aliado, às vezes inimigo dos Aesir. Sua natureza mutável o torna impossível de prever."
           />
         </section>
       </section>
@@ -191,13 +196,13 @@ export default function Home() {
       <section id="testimonials">
         <header>
           <span>
-            <p className="desktop-only">Conselho de quem conhece</p>
-            <h2>Cada cliente importa!</h2>
+            <p className="desktop-only">Voz da Comunidade</p>
+            <h2>Cada Guerreiro Importa!</h2>
           </span>
           <p>
-            Quem já pediu sabe da qualidade das nossas receitas, estamos tirando
-            aquela ideia de que comida congelada tem de ser algo sem gosto,
-            acompanhe abaixo os testemunhos de quem já comprou e aprovou.
+            Milhares de fãs de mitologia nórdica já exploram nossas histórias
+            épicas e participam de nossa comunidade. Confira abaixo os
+            depoimentos de quem já descobriu as lendas de Asgard conosco.
           </p>
         </header>
 
@@ -205,29 +210,27 @@ export default function Home() {
           <div className="carousel-content">
             <TestimonialCard
               image={ProfileImageOne}
-              name="Ellon Ma"
-              role="CEO BING CHILLING"
-              text="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              name="Xanaina"
+              role="Leitora"
+              text="Loki é meu favorito e aqui há conteúdo que explora a complexidade desse deus de forma única. Discussões respeitosas e bem fundamentadas. Muito bom!"
             />
             <TestimonialCard
               image={ProfileImageTwo}
-              name="Ryan Gosling"
-              role="Agrônomo"
-              text="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-            />
-          </div>
+              name="Joelma Santos"
+              role="Leitora"
+            text="Finalmente encontrei um lugar onde posso explorar mitologia nórdica com profundidade! Os artigos sobre Odin e sua busca pela sabedoria mudaram minha perspectiva. A comunidade é incrível"  />
+          </div>  
           <div className="carousel-content">
             <TestimonialCard
               image={ProfileImageOne}
-              name="Ellon Ma"
-              role="CEO BING CHILLING"
-              text="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-            />
+              name="John Cena"
+              role="Leitor"
+             text="As análises sobre Thor e o Ragnarok são simplesmente épicas. Adorei os webinars exclusivos com especialistas. Recomendo para todo fã de mitologia"   />
             <TestimonialCard
               image={ProfileImageTwo}
               name="Ryan Gosling"
               role="Agrônomo"
-              text="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              text="Finalmente encontrei um lugar onde posso explorar mitologia nórdica com profundidade! Os artigos sobre Odin e sua busca pela sabedoria mudaram minha perspectiva. A comunidade é incrível"
             />
           </div>
         </section>
@@ -241,42 +244,42 @@ export default function Home() {
 
         <section className="even-columns gap-1.5">
           <PricingCard
-            title="Básico"
-            description="Você tem direito a uma prova das comidas DonaFrost."
+            title="Iniciante"
+            description="Comece sua jornada em Asgard. Acesso básico às histórias dos deuses nórdicos."
             price="Grátis"
-            buttonText="Pedir agora"
+            buttonText="Começar Agora"
             features={[
-              "Retire na loja",
-              "Apenas 1 por CPF",
-              "Pacote mais simples",
+              "Reviews básicos de obras",
+              "Acesso à comunidade",
+              "5 artigos por mês",
             ]}
           />
 
           <PricingCard
-            title="Premium"
-            description="Para quem precisa de uma marmita diária, muito saborosa."
-            price="R$ 89,90"
+            title="Mitólogo"
+            description="Para quem deseja explorar profundamente. Acesso completo e sem anúncios."
+            price="R$ 19,90"
             period="/mês"
             buttonText="Pedir agora"
             isPremium={true}
             bonusText="1º MÊS COM DESCONTO"
             features={[
-              "2 Entregas",
-              "5 Refeições por semana",
-              "2 Sucos por semana",
+              "Tudo do plano Iniciante +",
+              "Enciclopédia Nórdica completa",
+              "Sem anúncios",
             ]}
           />
 
           <PricingCard
-            title="Empresarial"
-            description="Utilize nossa solução na sua empresa. Aprimore seu fluxo."
-            price="R$ 12,90"
+            title="Guerreiro"
+            description="Para verdadeiros guerreiros. Acesso total e comunidade exclusiva de Asgard."
+            price="R$ 49,90"
             period="/mês"
             buttonText="Baixar agora"
             features={[
-              "Com anúncios",
-              "Até 10 produtos por dia",
-              "Utilize sem limitação X",
+              "Tudo do Mitólogo +",
+              "Comunidade VIP exclusiva",
+              "Acesso ilimitado a conteúdo",
             ]}
           />
         </section>
@@ -286,13 +289,14 @@ export default function Home() {
         <header>
           <p className="desktop-only">Envie sua dúvida</p>
           <h2>Entre em contato</h2>
-          <p>Entre em contato, estamos dispostos a tirar qualquer dúvida.</p>
+          <p>Tem alguma dúvida sobre mitologia nórdica ou sobre nossos planos? <br></br> Estamos aqui para ajudar! Entre em contato conosco e exploraremos Asgard juntos.</p>
         </header>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={(e) => sendContactEmail(e)}>
           <input
             type="email"
             name="email"
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Seu melhor Email"
             required
           />
@@ -300,6 +304,7 @@ export default function Home() {
             name="message"
             placeholder="Motivo do contato. Ex: qual o valor de..."
             rows={4}
+            onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
           <Button text="Enviar" />
