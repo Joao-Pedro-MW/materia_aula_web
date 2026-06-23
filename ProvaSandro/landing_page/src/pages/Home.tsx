@@ -23,7 +23,7 @@ import "../styles/contact.css";
 import "../styles/footer.css";
 import "../styles/button.css";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
