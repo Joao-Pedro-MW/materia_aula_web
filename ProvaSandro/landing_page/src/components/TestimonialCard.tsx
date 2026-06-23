@@ -1,4 +1,4 @@
-import Star from "../assets/star.svg";
+import Star from "../assets/star.png";
 import StarOuter from "../assets/star-outer.svg";
 
 interface TestimonialCardProps {
@@ -51,8 +51,8 @@ export default function TestimonialCard({
           loading="lazy"
         />
         <img
-          src={StarOuter}
-          alt="ícone estrela sem fundo"
+          src={Star}
+          alt="ícone estrela"
           width={20}
           height={22}
           loading="lazy"

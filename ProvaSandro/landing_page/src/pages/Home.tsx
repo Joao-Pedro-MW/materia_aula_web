@@ -1,7 +1,9 @@
 import Logo from "../assets/logo.svg";
 import Menu from "../assets/hamburguer.svg";
 import Close from "../assets/close.svg";
-import Champion from "../assets/champion.svg";
+import Loki from "../assets/loki.png";
+import Odin from "../assets/odin.png";
+import Thor from "../assets/thor.png";
 import Footer from "../components/Footer";
 import ProfileImageOne from "../assets/images/profile1.png";
 import ProfileImageTwo from "../assets/images/profile2.png";
@@ -21,13 +23,13 @@ import "../styles/contact.css";
 import "../styles/footer.css";
 import "../styles/button.css";
 
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  async function sendContactEmail(e: React.SubmitEvent<HTMLFormElement>) {
+  async function sendContactEmail(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     const response = await fetch("/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -63,13 +65,13 @@ export default function Home() {
                 <a href="#">Home</a>
               </li>
               <li>
-                <a href="#solution">História</a>
+                <a href="#solution">Deuses</a>
               </li>
               <li>
-                <a href="#testimonials">Odin</a>
+                <a href="#testimonials">Comunidade</a>
               </li>
               <li>
-                <a href="#pricing">Inimigos</a>
+                <a href="#pricing">Planos</a>
               </li>
               <li>
                 <a href="#contact">Contato</a>
@@ -94,13 +96,13 @@ export default function Home() {
                       <a href="#">Home</a>
                     </li>
                     <li>
-                      <a href="#solution">História</a>
+                      <a href="#solution">Deuses</a>
                     </li>
                     <li>
-                      <a href="#testimonials">Odin</a>
+                      <a href="#testimonials">Comunidade</a>
                     </li>
                     <li>
-                      <a href="#pricing">Inimigos</a>
+                      <a href="#pricing">Planos</a>
                     </li>
                     <li>
                       <a href="#contact">Contato</a>
@@ -158,34 +160,35 @@ export default function Home() {
       <section className="container" id="solution">
         <header>
           <span>
-            <h2>Soluções</h2>
+            <h2>Deuses</h2>
             <span className="desktop-only">
-              <h2>Sob medida para você</h2>
+              <h2>Principais deuses nórdicos</h2>
             </span>
           </span>
           <p>
-            Inovação é com a gente! A <strong>DonaFrost</strong> já conquistou
-            diversos clientes, seja você mais um deles, veja tudo que pode
-            ganhar com nossos serviços.
+            Mergulhe nas histórias épicas de Odin, Thor e Loki. Descubra os
+            mistérios de Asgard e a sabedoria dos antigos Vikings. Explore as
+            lendas que moldaram a mitologia nórdica e inspire-se com a coragem e
+            a astúcia desses deuses lendários.
           </p>
         </header>
 
         <section className="even-columns">
           <SolutionCard
-            icon={Champion}
+            icon={Thor}
             iconAlt="ícone campeão"
             title="Thor - O Deus do Trovão"
             description="Protetor de Midgard e um dos deuses mais populares. Thor é conhecido por sua força imensa, seu martelo Mjolnir, e sua luta contra os gigantes do caos"
           />
           <SolutionCard
-            icon={Champion}
+            icon={Odin}
             iconAlt="ícone campeão"
             title="Odin - O Pai dos Deuses"
             description="Odin é o senhor de Asgard, conhecido por sua busca infinita pelo conhecimento e sua capacidade de ver o passado, presente e futuro."
           />
 
           <SolutionCard
-            icon={Champion}
+            icon={Loki}
             iconAlt="ícone campeão"
             title="Loki - O Trapaceiro"
             description="Loki é um personagem complexo, às vezes aliado, às vezes inimigo dos Aesir. Sua natureza mutável o torna impossível de prever."
@@ -218,14 +221,16 @@ export default function Home() {
               image={ProfileImageTwo}
               name="Joelma Santos"
               role="Leitora"
-            text="Finalmente encontrei um lugar onde posso explorar mitologia nórdica com profundidade! Os artigos sobre Odin e sua busca pela sabedoria mudaram minha perspectiva. A comunidade é incrível"  />
-          </div>  
+              text="Finalmente encontrei um lugar onde posso explorar mitologia nórdica com profundidade! Os artigos sobre Odin e sua busca pela sabedoria mudaram minha perspectiva. A comunidade é incrível"
+            />
+          </div>
           <div className="carousel-content">
             <TestimonialCard
               image={ProfileImageOne}
               name="John Cena"
               role="Leitor"
-             text="As análises sobre Thor e o Ragnarok são simplesmente épicas. Adorei os webinars exclusivos com especialistas. Recomendo para todo fã de mitologia"   />
+              text="As análises sobre Thor e o Ragnarok são simplesmente épicas. Adorei os webinars exclusivos com especialistas. Recomendo para todo fã de mitologia"
+            />
             <TestimonialCard
               image={ProfileImageTwo}
               name="Ryan Gosling"
@@ -289,7 +294,11 @@ export default function Home() {
         <header>
           <p className="desktop-only">Envie sua dúvida</p>
           <h2>Entre em contato</h2>
-          <p>Tem alguma dúvida sobre mitologia nórdica ou sobre nossos planos? <br></br> Estamos aqui para ajudar! Entre em contato conosco e exploraremos Asgard juntos.</p>
+          <p>
+            Tem alguma dúvida sobre mitologia nórdica ou sobre nossos planos?{" "}
+            <br></br> Estamos aqui para ajudar! Entre em contato conosco e
+            exploraremos Asgard juntos.
+          </p>
         </header>
 
         <form className="contact-form" onSubmit={(e) => sendContactEmail(e)}>
