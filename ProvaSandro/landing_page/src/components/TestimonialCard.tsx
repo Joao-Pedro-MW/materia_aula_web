@@ -1,5 +1,4 @@
 import Star from "../assets/star.png";
-import StarOuter from "../assets/star-outer.svg";
 
 interface TestimonialCardProps {
   image: string;
